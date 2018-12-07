@@ -11,18 +11,57 @@
 	<head>
 		<meta charset="utf-8">
 		<base href="<%= basePath %>" />
-		<title>This is my JSP</title>
+		<title>登录页面</title>
+		<style type="text/css">
+			body{
+				background-image:url(pic_login/bg_login.jpg);
+			}
+			#main_login{
+				width:500px;
+				margin:0 auto;
+			}
+			.logo_login{
+				margin:128px 0 20px 0;
+			}
+			input{
+				border:0;
+			}
+			.p_login{
+				font-size:18px;
+				color:#074BA0;
+				border-bottom:1px solid #074BA0;
+			}
+			.submit_login{
+				margin:52px  0 0 316px;
+				width:184px;
+				height:60px;
+				font-size:24px;
+				color:white;
+				background-color:#074BA0;
+			}
+			.input_login{
+				height:30px;
+				width:200px;
+				opacity:1;
+				outline:none;
+				font-size:18px;
+			}
+			.input_login:focus,textarea:focus{
+				background-color:none;
+			}
+			
+		</style>
 	</head>
 	<body>
-		<h1>登录</h1>
-		<p style="color:red;font-weight:900">${msg }</p>
-		<form action="<c:url value='/LoginServlet'/>" method="post">
-			用户名：<input type="text" name="username" value="${user.username }"/><span style="color:red">${errors.username }</span><br/>
-			密   码：<input type="password" name="password" value="${user.password }"/><span style="color:red">${errors.password }</span><br/>
-			验证码：<input type="text" name="verifyCode" value="${user.verifyCode }" size="3"/>
-				  <img id="vCode" src="<c:url value='/VerifyCodeServlet'/>" border="2"/>
-				  <a href="javascript:_change()">换一张</a><span style="color:red">${errors.verifyCode }</span><br/>
-			<input type="submit" value="登录"/>
-		</form>
+		<div id="main_login">
+			<img src="pic_login/logo_login.png" class="logo_login"/>
+			<p style="color:red;font-weight:900">${msg }</p>
+			<form action="<c:url value='/LoginServlet'/>" method="post">
+					<p class="p_login">用户名：<input class="input_login" type="text" name="username" value="${user.username }"/></p>
+					<br/>
+					<p class="p_login">密&nbsp;码：<input class="input_login" type="password" name="password" value="${user.password }"/></p>
+					<input class="submit_login" type="submit" value="登录" style="cursor:pointer"/>
+			</form>
+		</div>
 	</body>
 </html>
