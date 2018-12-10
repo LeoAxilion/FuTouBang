@@ -1,5 +1,6 @@
 package login.user.service;
 
+import login.user.dao.DaoFactory;
 import login.user.dao.UserDao;
 import login.user.domain.User;
 
@@ -9,7 +10,7 @@ import login.user.domain.User;
  *
  */
 public class UserService {
-	private UserDao userDao = new UserDao();
+	private UserDao userDao = DaoFactory.getUserDao();
 	
 	/**
 	 * 1注册功能
