@@ -4,7 +4,7 @@
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
-	+ path + "/";
+	+ path + "/image/BCC/";
 %>
 <!Doctype html>
 <html>
@@ -14,7 +14,7 @@
 		<title>登录页面</title>
 		<style type="text/css">
 			body{
-				background-image:url(pic_login/bg_login.jpg);
+				background-image:url(<%=basePath %>/pic_login/bg_login.jpg);
 			}
 			#main_login{
 				width:500px;
@@ -42,19 +42,15 @@
 			.input_login{
 				height:30px;
 				width:200px;
-				opacity:1;
 				outline:none;
 				font-size:18px;
-			}
-			.input_login:focus,textarea:focus{
-				background-color:none;
 			}
 			
 		</style>
 	</head>
 	<body>
 		<div id="main_login">
-			<img src="pic_login/logo_login.png" class="logo_login"/>
+			<img src="<%=basePath %>/pic_login/logo_login.png" class="logo_login"/>
 			<p style="color:red;font-weight:900">${msg }</p>
 			<form action="<c:url value='/LoginServlet'/>" method="post">
 					<p class="p_login">用户名：<input class="input_login" type="text" name="username" value="${user.username }"/></p>
